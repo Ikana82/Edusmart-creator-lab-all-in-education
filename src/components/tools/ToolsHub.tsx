@@ -47,11 +47,11 @@ export const ToolsHub: React.FC<ToolsHubProps> = ({ onSelectTool, onOpenA4Prompt
     },
     {
       id: 'tool-game',
-      name: 'Game Generator',
-      desc: 'Buat konsep board game edukasi cetak mandiri, aturan permainan, dan kartu kuis tantangan bertingkat.',
+      name: 'Game Edukasi Studio',
+      desc: 'Wizard 9-step generator prompt layar game (Pilihan Ganda, Petualangan, Cerita), 12 gaya visual, layout 16:9/9:16, dan maskot pemandu.',
       icon: Gamepad2,
       color: 'bg-amber-50 text-amber-600 border-amber-200',
-      badge: 'Gamifikasi'
+      badge: '9-Step Baru'
     },
     {
       id: 'tool-comic',

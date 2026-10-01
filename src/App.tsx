@@ -24,6 +24,7 @@ import { SongGenerator } from './components/tools/SongGenerator';
 import { LKPDGenerator } from './components/tools/LKPDGenerator';
 import { GameComicFlashcardGenerator } from './components/tools/GameComicFlashcardGenerator';
 import { MediaPembelajaranGenerator } from './components/tools/MediaPembelajaranGenerator';
+import { GameEduStudio } from './components/tools/GameEduStudio';
 import { VideoAudioHub } from './components/video-audio/VideoAudioHub';
 import { PromptLibrary } from './components/prompts/PromptLibrary';
 import { AIDirectory } from './components/directory/AIDirectory';
@@ -235,6 +236,7 @@ export default function App() {
               onSearchChange={setSearchQuery}
               onNavigateToWorksheetStudio={() => handleNavigate('tools', 'tool-worksheet')}
               onNavigateToMediaStudio={() => handleNavigate('tools', 'tool-media')}
+              onNavigateToGameStudio={() => handleNavigate('tools', 'tool-game')}
             />
           )}
 
@@ -300,10 +302,10 @@ export default function App() {
                 />
               )}
               {currentSubcategory === 'tool-game' && (
-                <GameComicFlashcardGenerator
-                  toolType="game"
+                <GameEduStudio
                   onBack={() => handleNavigate('tools')}
                   onNotify={showToast}
+                  onSaveGame={() => showToast('Game edukasi tersimpan di proyek lokal!', 'success')}
                 />
               )}
               {currentSubcategory === 'tool-comic' && (

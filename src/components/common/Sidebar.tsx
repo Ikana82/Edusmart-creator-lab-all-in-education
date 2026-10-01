@@ -212,7 +212,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   { id: 'tool-coding-worksheet', label: 'Coding Guide (12 Subjenis)', badge: 'Spesial' },
                   { id: 'tool-media', label: 'Media Pembelajaran Studio', badge: 'Baru' },
                   { id: 'tool-lkpd', label: 'LKPD Generator' },
-                  { id: 'tool-game', label: 'Game Generator' },
+                  { id: 'tool-game', label: 'Game Edukasi (9-Step)', badge: 'Baru' },
                   { id: 'tool-comic', label: 'Komik Generator' },
                   { id: 'tool-flashcard', label: 'Flashcard Generator' },
                   { id: 'tool-storyboard', label: 'Storyboard Generator' },

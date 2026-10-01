@@ -11,6 +11,7 @@ interface ResourcesCatalogProps {
   onSearchChange: (q: string) => void;
   onNavigateToWorksheetStudio?: (catId?: string) => void;
   onNavigateToMediaStudio?: () => void;
+  onNavigateToGameStudio?: () => void;
 }
 
 export const ResourcesCatalog: React.FC<ResourcesCatalogProps> = ({
@@ -20,7 +21,8 @@ export const ResourcesCatalog: React.FC<ResourcesCatalogProps> = ({
   searchQuery,
   onSearchChange,
   onNavigateToWorksheetStudio,
-  onNavigateToMediaStudio
+  onNavigateToMediaStudio,
+  onNavigateToGameStudio
 }) => {
   // Filters
   const [selectedCategory, setSelectedCategory] = useState<string>(activeSubcategory || 'all');
@@ -151,6 +153,29 @@ export const ResourcesCatalog: React.FC<ResourcesCatalogProps> = ({
             className="px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white text-xs font-semibold rounded-xl shadow-xs transition-all flex items-center gap-2 shrink-0 cursor-pointer"
           >
             <span>Buka Media Pembelajaran Studio</span>
+          </button>
+        </div>
+      )}
+
+      {/* Game Edukasi Studio Callout Banner when in Game tab */}
+      {selectedCategory === 'game' && onNavigateToGameStudio && (
+        <div className="p-5 bg-gradient-to-r from-amber-950 via-slate-900 to-amber-950 rounded-2xl text-white shadow-md border border-amber-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="space-y-1 max-w-xl">
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/30 text-amber-300 border border-amber-400/30 font-mono">
+              EduSmart Game Edukasi Studio · 9-Step Wizard
+            </span>
+            <h3 className="text-base font-bold font-display text-white">
+              Rancang Game Edukasi Interaktif & Prompt Layar Game
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Buat game edukasi bertingkat: Game Pilihan Ganda, Petualangan Misi, atau Game Cerita. Lengkap dengan 12 gaya visual, karakter maskot pemandu, simulasi layar interaktif, dan prompt siap pakai!
+            </p>
+          </div>
+          <button
+            onClick={() => onNavigateToGameStudio()}
+            className="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white text-xs font-semibold rounded-xl shadow-xs transition-all flex items-center gap-2 shrink-0 cursor-pointer"
+          >
+            <span>Buka Game Edukasi Studio</span>
           </button>
         </div>
       )}
