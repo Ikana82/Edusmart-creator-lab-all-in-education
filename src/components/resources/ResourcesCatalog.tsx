@@ -9,6 +9,8 @@ interface ResourcesCatalogProps {
   onSelectResource: (res: EducationalResource) => void;
   searchQuery: string;
   onSearchChange: (q: string) => void;
+  onNavigateToWorksheetStudio?: (catId?: string) => void;
+  onNavigateToMediaStudio?: () => void;
 }
 
 export const ResourcesCatalog: React.FC<ResourcesCatalogProps> = ({
@@ -16,7 +18,9 @@ export const ResourcesCatalog: React.FC<ResourcesCatalogProps> = ({
   activeSubcategory,
   onSelectResource,
   searchQuery,
-  onSearchChange
+  onSearchChange,
+  onNavigateToWorksheetStudio,
+  onNavigateToMediaStudio
 }) => {
   // Filters
   const [selectedCategory, setSelectedCategory] = useState<string>(activeSubcategory || 'all');
@@ -104,6 +108,52 @@ export const ResourcesCatalog: React.FC<ResourcesCatalogProps> = ({
           Menampilkan <span className="text-indigo-600 font-bold">{filteredResources.length}</span> dari {resources.length} materi
         </div>
       </div>
+
+      {/* Worksheet Studio Callout Banner when in Worksheet tab */}
+      {selectedCategory === 'worksheet' && onNavigateToWorksheetStudio && (
+        <div className="p-5 bg-gradient-to-r from-indigo-900 via-slate-900 to-indigo-950 rounded-2xl text-white shadow-md border border-indigo-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="space-y-1 max-w-xl">
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-500/30 text-indigo-300 border border-indigo-400/30 font-mono">
+              EduSmart Worksheet Studio · 13 Menu Utama
+            </span>
+            <h3 className="text-base font-bold font-display text-white">
+              Ingin Membuat Worksheet Edukatif Siap Cetak Sendiri?
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Gunakan wizard bertahap untuk menghasilkan lembar kerja A4 Portrait (300 DPI · 4K) lengkap dengan pilihan format: Coding (12 subjenis), Mewarnai, Matching, Tracing, dan lainnya.
+            </p>
+          </div>
+          <button
+            onClick={() => onNavigateToWorksheetStudio()}
+            className="px-5 py-2.5 bg-gradient-to-r from-indigo-500 to-sky-500 hover:from-indigo-600 hover:to-sky-600 text-white text-xs font-semibold rounded-xl shadow-xs transition-all flex items-center gap-2 shrink-0 cursor-pointer"
+          >
+            <span>Buka Worksheet Studio</span>
+          </button>
+        </div>
+      )}
+
+      {/* Media Pembelajaran Studio Callout Banner when in Media tab */}
+      {selectedCategory === 'media' && onNavigateToMediaStudio && (
+        <div className="p-5 bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-900 rounded-2xl text-white shadow-md border border-emerald-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="space-y-1 max-w-xl">
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/30 text-emerald-300 border border-emerald-400/30 font-mono">
+              EduSmart Media Pembelajaran Studio · 8-Step Wizard
+            </span>
+            <h3 className="text-base font-bold font-display text-white">
+              Buat Prompt Slide Presentasi Media Pembelajaran Interaktif
+            </h3>
+            <p className="text-xs text-slate-300 leading-relaxed">
+              Hasilkan seluruh prompt slide presentasi (20 halaman standar, pilihan layout 16:9 atau 9:16, 14 gaya visual, dan maskot kustom) siap pakai untuk generator gambar AI.
+            </p>
+          </div>
+          <button
+            onClick={() => onNavigateToMediaStudio()}
+            className="px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white text-xs font-semibold rounded-xl shadow-xs transition-all flex items-center gap-2 shrink-0 cursor-pointer"
+          >
+            <span>Buka Media Pembelajaran Studio</span>
+          </button>
+        </div>
+      )}
 
       {/* Filter and Search Bar */}
       <div className="p-4 sm:p-5 bg-white rounded-2xl border border-slate-200/80 shadow-xs space-y-4">

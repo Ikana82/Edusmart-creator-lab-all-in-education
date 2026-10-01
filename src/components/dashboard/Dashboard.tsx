@@ -16,7 +16,8 @@ import {
   Copy,
   Check,
   Heart,
-  ExternalLink
+  ExternalLink,
+  MonitorPlay
 } from 'lucide-react';
 import { MainTab } from '../common/Sidebar';
 import { EducationalResource, PromptTemplate } from '../../types';
@@ -55,6 +56,14 @@ export const Dashboard: React.FC<DashboardProps> = ({
   };
 
   const quickActions = [
+    {
+      id: 'tool-media',
+      label: 'Media Pembelajaran',
+      sub: 'Slide Presentasi (8-Step)',
+      icon: MonitorPlay,
+      color: 'from-emerald-500 to-teal-600',
+      tab: 'tools' as MainTab
+    },
     {
       id: 'tool-worksheet',
       label: 'Create Worksheet',

@@ -210,6 +210,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 {[
                   { id: 'tool-worksheet', label: 'Worksheet Studio (13 Menu)', badge: 'Utama' },
                   { id: 'tool-coding-worksheet', label: 'Coding Guide (12 Subjenis)', badge: 'Spesial' },
+                  { id: 'tool-media', label: 'Media Pembelajaran Studio', badge: 'Baru' },
                   { id: 'tool-lkpd', label: 'LKPD Generator' },
                   { id: 'tool-game', label: 'Game Generator' },
                   { id: 'tool-comic', label: 'Komik Generator' },

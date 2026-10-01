@@ -9,16 +9,26 @@ import {
   Video,
   Music,
   ArrowRight,
-  Sparkles
+  Sparkles,
+  MonitorPlay
 } from 'lucide-react';
 
 interface ToolsHubProps {
   onSelectTool: (toolId: string) => void;
   onOpenA4PromptStudio?: () => void;
+  onOpenMediaStudio?: () => void;
 }
 
-export const ToolsHub: React.FC<ToolsHubProps> = ({ onSelectTool, onOpenA4PromptStudio }) => {
+export const ToolsHub: React.FC<ToolsHubProps> = ({ onSelectTool, onOpenA4PromptStudio, onOpenMediaStudio }) => {
   const tools = [
+    {
+      id: 'tool-media',
+      name: 'Media Pembelajaran Studio',
+      desc: 'Wizard 8-step generator prompt slide presentasi media pembelajaran interaktif (20 halaman standar, 14 gaya visual, dan maskot kustom).',
+      icon: MonitorPlay,
+      color: 'bg-emerald-50 text-emerald-600 border-emerald-200',
+      badge: 'Spesial Baru'
+    },
     {
       id: 'tool-worksheet',
       name: 'Worksheet Generator',
@@ -99,6 +109,34 @@ export const ToolsHub: React.FC<ToolsHubProps> = ({ onSelectTool, onOpenA4Prompt
         <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
           Pilih salah satu dari 8 generator AI di bawah untuk mulai merancang materi dan media edukasi Anda. Setiap tool dilengkapi wizard bertahap yang mudah diikuti.
         </p>
+      </div>
+
+      {/* Featured Media Pembelajaran Presentation Slide Studio Banner */}
+      <div className="p-6 bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-900 rounded-3xl text-white shadow-lg border border-emerald-500/20 flex flex-col md:flex-row md:items-center justify-between gap-6 relative overflow-hidden">
+        <div className="space-y-2 max-w-2xl relative z-10">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/30 text-emerald-300 text-xs font-semibold border border-emerald-400/30">
+            <MonitorPlay className="w-3.5 h-3.5 text-emerald-300" />
+            <span>Fitur Baru · Wizard 8-Step Slide Interaktif</span>
+          </div>
+          <h2 className="text-xl sm:text-2xl font-bold font-display text-white tracking-tight">
+            Media Pembelajaran Studio (Prompt Slide Presentasi)
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Rancang presentasi interaktif lengkap: Cover, Navigasi, Materi, Video, Rangkuman, Kuis 5 Level, hingga Respon Benar/Salah. Dilengkapi <strong className="text-white">14 pilihan gaya visual (3D Pixar, Clay, Felt Toy, Watercolor, Flat Cartoon)</strong>, layout 16:9 atau 9:16, dan karakter maskot edukasi.
+          </p>
+        </div>
+
+        <div className="relative z-10 flex sm:flex-col items-center sm:items-end gap-2 shrink-0">
+          <button
+            onClick={() => onSelectTool('tool-media')}
+            className="px-6 py-3 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white text-xs sm:text-sm font-semibold rounded-2xl shadow-md shadow-emerald-500/30 transition-all flex items-center gap-2 cursor-pointer"
+          >
+            <Sparkles className="w-4 h-4" />
+            <span>Mulai Wizard Media (8 Step)</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+          <span className="text-[11px] text-slate-400 font-mono">1920×1080 px · 300 DPI · 8K</span>
+        </div>
       </div>
 
       {/* Featured A4 Worksheet Prompt Studio Banner */}

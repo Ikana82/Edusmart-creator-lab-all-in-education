@@ -23,6 +23,7 @@ import { VideoGenerator } from './components/tools/VideoGenerator';
 import { SongGenerator } from './components/tools/SongGenerator';
 import { LKPDGenerator } from './components/tools/LKPDGenerator';
 import { GameComicFlashcardGenerator } from './components/tools/GameComicFlashcardGenerator';
+import { MediaPembelajaranGenerator } from './components/tools/MediaPembelajaranGenerator';
 import { VideoAudioHub } from './components/video-audio/VideoAudioHub';
 import { PromptLibrary } from './components/prompts/PromptLibrary';
 import { AIDirectory } from './components/directory/AIDirectory';
@@ -232,6 +233,8 @@ export default function App() {
               onSelectResource={setSelectedResource}
               searchQuery={searchQuery}
               onSearchChange={setSearchQuery}
+              onNavigateToWorksheetStudio={() => handleNavigate('tools', 'tool-worksheet')}
+              onNavigateToMediaStudio={() => handleNavigate('tools', 'tool-media')}
             />
           )}
 
@@ -242,6 +245,14 @@ export default function App() {
                 <ToolsHub
                   onSelectTool={(toolId) => handleNavigate('tools', toolId)}
                   onOpenA4PromptStudio={() => handleOpenA4PromptModal('coding')}
+                  onOpenMediaStudio={() => handleNavigate('tools', 'tool-media')}
+                />
+              )}
+              {currentSubcategory === 'tool-media' && (
+                <MediaPembelajaranGenerator
+                  onBack={() => handleNavigate('tools')}
+                  onSaveToSavedProjects={() => showToast('Slide media tersimpan ke proyek lokal!', 'success')}
+                  onNotify={showToast}
                 />
               )}
               {currentSubcategory === 'tool-worksheet' && (
