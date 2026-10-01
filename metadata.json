@@ -1,0 +1,6 @@
+{
+  "name": "EduSmart Creator Lab",
+  "description": "Platform edukasi digital untuk pembuatan dan pengembangan produk edukasi dengan bantuan AI — Worksheet A4 300DPI 4K, LKPD, Game, Komik, Flashcard, Storyboard, Video, dan Lagu Edukasi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
